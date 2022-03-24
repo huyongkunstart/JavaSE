@@ -10,7 +10,7 @@ public class AbstractTest {
 		
 		
 		//非匿名类非匿名对象
-		Student student = new Student();  
+		Persons student = new Student();
 		method(student);
 		System.out.println("**********");
 		

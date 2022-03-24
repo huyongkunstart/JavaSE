@@ -5,7 +5,6 @@ import java.util.Random;
 //面试题：多态是编译时行为还是运行时行为？
 //证明如下：
 class Animal  {
- 
 	protected void eat() {
 		System.out.println("animal eat food");
 	}

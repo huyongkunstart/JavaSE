@@ -12,7 +12,7 @@ public class ComparableCircle extends Circle implements CompareObject {
 	}
 
 	@Override
-	public int compareTo(Object o) {
+	public int compareTo(Object o){
 		if(this == o) {
 			return 0;
 		}
@@ -28,7 +28,7 @@ public class ComparableCircle extends Circle implements CompareObject {
 				return 0;
 			}
 		}else {
-			return 0;
+			throw new RuntimeException("输入的数据类型不一致");
 		}
 		
 	}

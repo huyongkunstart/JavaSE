@@ -30,6 +30,7 @@ public class index2_代码块 {
 	public String toString() {
 		return "index2_代码块 [nameString=" + nameString + ", age=" + age + "]";
 	}
+
 	public static void main(String[] args) {
 		index2_代码块 a=new index2_代码块();
 		System.out.println("************");

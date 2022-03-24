@@ -4,7 +4,7 @@ package com.hu.java4_接口;
 public class NetWorkTest {
 	public static void main(String[] args) {
 		Server server = new Server();
-		ProxyServer proxyserver = new ProxyServer(server);
+		NetWork proxyserver = new ProxyServer(server);
 		proxyserver.browse();
 	}
 }

@@ -14,7 +14,8 @@ interface CompareA {
 	public default void method2() { //public 可以省略
 		System.out.println("接口A中的默认方法method2()");
 	}
-	default void method3() {
+	default void method3()
+	{
 		System.out.println("接口A中的默认方法method3()");
 	}
 }

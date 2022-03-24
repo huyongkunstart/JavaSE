@@ -5,8 +5,7 @@ public class Customer{
 	private String lastName;
 	private Account account;
 	public Customer() {
-		
-		
+
 	}
 
 	public Customer(String f,String l) {

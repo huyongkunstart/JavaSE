@@ -43,11 +43,9 @@ public class instanceTest {
 		if(e instanceof Student) {
 			System.out.println("a student");		
 		}
-		if(e instanceof Person) {
-			System.out.println("a person");		
-		}
-		
-		
+		System.out.println("a person");
+
+
 	}
 }
 
