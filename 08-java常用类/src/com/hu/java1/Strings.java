@@ -16,7 +16,7 @@ import org.junit.Test;
 public class Strings {
     @Test
     public void test(){
-        //通过字面量定义的方式:此时的s1和s2的数据JAVAEE生命在方法去中的字符串常量池中
+        //通过字面量定义的方式:此时的s1和s2的数据JAVAEE生命在方法区中的字符串常量池中
         String s1 = "JAVAEE";
         String s2 = "JAVAEE";
 //      通过new+构造器的方式：此时的s3和s4保存的地址值，是数据在堆空间开辟空间以后对应的地址值
@@ -33,6 +33,7 @@ public class Strings {
         Person p2 = new Person("Tom", 12);
         System.out.println(p1.name.equals(p2.name)); //true
         System.out.println(p1.name == p2.name); //true
+        System.out.println(p1.name == "Tom"); //true
 
         p1.name = "hu";
         System.out.println(p2.name);//Tom
@@ -58,6 +59,7 @@ public class Strings {
         System.out.println(s3==s5); //false
         System.out.println(s4==s5); //false
         System.out.println(s3==s6); //true
+        System.out.println(s7==s6); //true
         System.out.println(s3==s7); //true
 
 

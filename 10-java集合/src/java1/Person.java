@@ -67,8 +67,8 @@ public class Person implements Comparable{
             }else {
                 return Integer.compare(this.age,person.age);
             }
-        }else{
-            throw new RuntimeException("输入的类型不匹配");
         }
+        throw new RuntimeException("输入的类型不匹配");
+
     }
 }

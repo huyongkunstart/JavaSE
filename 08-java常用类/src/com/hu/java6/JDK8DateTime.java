@@ -29,7 +29,7 @@ public class JDK8DateTime {
         System.out.println("****************************************");
         //getXxx()：获取相关的属性
         System.out.println(localDateTime.getDayOfMonth());
-        System.out.println(localDateTime.getDayOfWeek());
+        System.out.println(localDateTime.getDayOfWeek().getValue());
         System.out.println(localDateTime.getDayOfYear());
         System.out.println(localDateTime.getMonth());
         System.out.println(localDateTime.getMonthValue());
@@ -46,7 +46,7 @@ public class JDK8DateTime {
         System.out.println(localDateTime);
         System.out.println(localDateTime2);
         System.out.println("****************************************");
-        //加属性
+        //减属性
         LocalDateTime localDateTime3 = localDateTime.minusMonths(3);
         System.out.println(localDateTime);
         System.out.println(localDateTime3);

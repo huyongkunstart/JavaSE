@@ -17,6 +17,7 @@ public class CollectionTest {
         collection.add("BB");
         collection.add(123);
         collection.add(new Date());
+        System.out.println(collection);
 
         //2.size();获取添加的元素的个数
         System.out.println(collection.size());
@@ -99,8 +100,9 @@ public class CollectionTest {
         //toArray()   集合转成对象数组
         Object[] objects = coll.toArray();
         for (Object i : objects){
-            System.out.println(i);
+            System.out.print(i+"\t");
         }
+        System.out.println();
         System.out.println("==========================");
         //数组--->集合 调用Arrays类的静态方法asList()
         Collection list = Arrays.asList("AA","BB","CC");

@@ -64,6 +64,7 @@ public class IteratorTest {
     public void test3(){
         String[] str = new String[5];
         for (String myStr : str) { //把str的值循环取出来给myStr，改变的是myStr的值
+//            System.out.println(myStr);
             myStr = "atguigu";
             System.out.println(myStr);
         }

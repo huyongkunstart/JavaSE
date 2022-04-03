@@ -66,6 +66,7 @@ public class TreeSetTest {
                 }
             }
         };
+
         //定制排序
         TreeSet set = new TreeSet(com);
         set.add(new Person("nihao",21));

@@ -2,6 +2,13 @@ package java3;
 
 import org.junit.Test;
 
+import javax.sound.midi.Soundbank;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.*;
+
 /**
  * Collection接口 ；单列集合，用来存储一个一个的对象
  * ------List接口：存储有序的，可重复的数据
@@ -22,6 +29,8 @@ import org.junit.Test;
  * @create 2022-01-03 17:07
  */
 public class ListTest {
+
+
     //List接口常用的方法
     @Test
     public void  test1(){
@@ -33,7 +42,28 @@ public class ListTest {
         Object remove(int index):移除指定index位置的元素，并返回此元素
         Object set(int index, Object ele):设置指定index位置的元素为ele
         List subList(int fromIndex, int toIndex):返回从fromIndex到toIndex 位置的子集合*/
+        Object[] a = new Object[]{};
+        System.out.println(a.length);
 
+        List list = Arrays.asList(123, 456, "aa", "bb", 'a', false);
+        List list1 = new ArrayList(list);
+        System.out.println(list1);
 
+        //add()
+        list1.add(0, LocalDate.now());
+        System.out.println(list1);
+
+        //get()
+        System.out.println(list1.get(1));
+        //set()
+        list1.set(0, LocalTime.now());
+        System.out.println(list1);
+        //remove(int index)
+        list1.remove(2);
+        System.out.println(list1);
+        //subList
+        System.out.println("-----------------------------");
+        List list2 = list1.subList(0, 3);
+        System.out.println(list2);
     }
 }

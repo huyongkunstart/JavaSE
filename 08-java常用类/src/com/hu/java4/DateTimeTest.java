@@ -32,7 +32,7 @@ public class DateTimeTest {
 
         //如何将java.util.Date对象转换为java.sql.Date对象
         //情况一
-        Date date3 = new java.sql.Date(1638439436019L);
+        Date date3 = new Date(1638439436019L);
         java.sql.Date date4 = (java.sql.Date)date3;
 
         //情况二

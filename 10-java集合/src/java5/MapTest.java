@@ -52,6 +52,7 @@ public class MapTest {
         map.put("AA",87);
 
         System.out.println(map);
+
         Map map1 = new HashMap();
         map1.put("CC",123);
         map1.put("DD",123);
@@ -105,20 +106,19 @@ public class MapTest {
             System.out.println(iterator1.next());
         }
         System.out.println("==================");
+
         //遍历所有的key-value
         //方式一
         Set set1 = map.entrySet();
         Iterator iterator2 = set1.iterator();
-//        while (iterator2.hasNext()){
-//            System.out.println(iterator2.next());
-//        }
         while (iterator2.hasNext()){
             Object obj = iterator2.next();
-            //enterSet集合中的元素都是entry
+            //enterSet集合中的元素都是Entry
             Map.Entry entry = (Map.Entry)obj;
             System.out.println(entry.getKey()+"--->"+entry.getValue());
         }
-        System.out.println("==================");
+
+
         //方式二
         Set keyset = map.keySet();
         Iterator iterator3 = keyset.iterator();
@@ -127,6 +127,33 @@ public class MapTest {
             Object value = map.get(key);
             System.out.println(key+"--->"+value);
         }
+
+
+
+       /*
+
+       //遍历所有的key-value
+        Set set1 = hashMap.entrySet();
+
+        //方法一：
+        Iterator iterator = set1.iterator();
+        while (iterator.hasNext()){
+            Object next = iterator.next();
+            Map.Entry next1 = (Map.Entry) next;
+            System.out.println(next1.getKey()+"---->"+next1.getValue());
+        }
+
+        //方法二：
+        for (Object o : set1) {
+            Map.Entry entry = (Map.Entry) o;
+            System.out.println(entry.getKey()+"---->"+entry.getValue());
+        }
+
+        //方法三：
+        Set keySet = hashMap.keySet();
+        for (Object o : keySet) {
+            System.out.println(o+"---->"+hashMap.get(o));
+        }*/
 
 
 
