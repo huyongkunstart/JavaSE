@@ -35,6 +35,7 @@ class Leaf extends Mid{
 	static{
 		System.out.println("Leaf的静态初始化块"); //3
 	}
+
 	{
 		System.out.println("Leaf的普通初始化块"); //9
 	}	

@@ -3,11 +3,7 @@ package com.hu.java;
 public class Person {
 	String name;
 	int age;
-	
-	
-	public Person() {
-		
-	}
+
 	public Person(String name) {
 		this.name=name;
 	}
@@ -15,8 +11,12 @@ public class Person {
 		this(name);
 		this.age = age;
 	}
-	
-	
+
+	public Person() {
+
+	}
+
+
 	public void eat() {
 		System.out.println("人，吃饭");
 	}

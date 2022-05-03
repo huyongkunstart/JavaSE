@@ -32,11 +32,12 @@ class Window2 implements Runnable{
         while (true){
             synchronized (this) { //此时的this：唯一的window1的对象
                 if (ticket > 0) {
-                    try {
+                    /*try {
                         Thread.sleep(100);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
-                    }
+                    }*/
+                    System.out.println(this.getClass());
                     System.out.println(Thread.currentThread().getName() + ":卖票，票号为：" + ticket--);
                 } else {
                     break;
@@ -55,8 +56,12 @@ public class WindowTest2 {
         t1.setName("窗口一");
         t2.setName("窗口二");
         t3.setName("窗口三");
-        t1.start();
+        t1.setPriority(Thread.MIN_PRIORITY);
+        t2.setPriority(Thread.MAX_PRIORITY);
+        t3.setPriority(Thread.MAX_PRIORITY);
         t2.start();
+        t1.start();
+
         t3.start();
     }
 }

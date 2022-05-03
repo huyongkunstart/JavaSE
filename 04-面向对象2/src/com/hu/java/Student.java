@@ -3,9 +3,9 @@ package com.hu.java;
 public class Student extends Person{
 	String major;
 
-	
+
 	public Student() {
-		
+		super();
 	}
 	public Student(String major) {
 		this.major = major;

@@ -61,7 +61,7 @@ abstract class Persons{
 	int age;
 	
 	public Persons() {
-		super();
+
 	}
 	public Persons(String name, int age) {
 		super();

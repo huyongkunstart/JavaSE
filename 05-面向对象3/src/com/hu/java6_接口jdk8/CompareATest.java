@@ -17,10 +17,11 @@ public class CompareATest {
 		//实现类中调用接口中的默认方法
 		 CompareA.super.method3();
 		 CompareB.super.method3();
+
 	 }
 
 	@Override
 	public void method3() {
 		System.out.println("实现类重写的method3方法");
-	} 
+	}
  }

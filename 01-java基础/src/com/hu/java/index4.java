@@ -6,7 +6,7 @@ public class index4 {
         while (true) {
                 System.out.println("请输入一个int数字");
                 Scanner sc=new Scanner(System.in);
-                if(sc.hasNextInt()) {	
+                if(sc.hasNextInt()) {
 	                int x = sc.nextInt();
 	                System.out.println(x);
                 }

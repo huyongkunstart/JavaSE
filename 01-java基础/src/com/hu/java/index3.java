@@ -9,6 +9,7 @@ public class index3 {
             try {
                 System.out.println("请输入一个字符串");
                 Scanner sc = new Scanner(System.in);
+                System.out.println("1");
                 String str = sc.nextLine();
                 System.out.println(str);
  

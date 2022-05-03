@@ -31,18 +31,16 @@ public class USBTest {
 		
 		//创建接口的匿名实现类的匿名对象
 		System.out.println("************************");
-		a.transferDate(new USB(){
-
+		a.transferDate(new USB() {
 			@Override
 			public void start() {
-				System.out.println("手机开始工作");
+				System.out.println("电脑开始工作");
 			}
 
 			@Override
 			public void stop() {
-				System.out.println("手机结束工作");
+				System.out.println("电脑结束工作");
 			}
-			
 		});
 		
 	}
@@ -59,9 +57,7 @@ class Computer{
 
 interface USB{
 	//定义了长，宽等
-	
 	void start(); //默认就是抽象方法，省略了public abstract
-	  
 	public abstract void stop(); 
 }
 

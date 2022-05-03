@@ -9,8 +9,10 @@ public class index2_匿名对象 {
 }
 
 class PhoneMall {
+
 	public void show(Phone phone) {
 		phone.sendEmail();
+
 		phone.playGame();
 		phone.showPrice();
 	}
