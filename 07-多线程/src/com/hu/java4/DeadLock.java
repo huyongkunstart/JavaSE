@@ -51,7 +51,7 @@ public class DeadLock implements Runnable {
 		a.foo(b);
 		System.out.println("进入了主线程之后");
 	}
-
+	@Override
 	public void run() {
 		Thread.currentThread().setName("副线程");
 		// 调用b对象的bar方法

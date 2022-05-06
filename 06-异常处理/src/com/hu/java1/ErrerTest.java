@@ -8,9 +8,9 @@ package com.hu.java1;
 public class ErrerTest {
 	public static void main(String[] args) {
 		//java.lang.StackOverflowError 栈溢出
-		//main(args);
+//		main(args);
 		
 		//java.lang.OutOfMemoryError  堆溢出
-		Integer[] arr = new Integer[1024*1024*1024]; 
+		Integer[] arr = new Integer[1024*1024*1024*1024];
 	}
 }

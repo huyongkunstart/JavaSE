@@ -52,6 +52,5 @@ public class FinallyTest {
 		}finally {
 			System.out.println("一定执行");
 		}
-		
 	}
 }

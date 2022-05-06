@@ -37,7 +37,7 @@ public class ExceptionTest {
 	}
 	
 	
-//InputMismatchException
+//InputMismatchException  //输入不匹配异常
 	@Test
 	public void test5() {
 		Scanner scanner = new Scanner(System.in);
@@ -46,7 +46,7 @@ public class ExceptionTest {
 	}
 	
 	
-//NumberFormatException
+//NumberFormatException // 数字转换异常
 	@Test
 	public void Test4() {
 		String str = "123";
@@ -82,6 +82,7 @@ public class ExceptionTest {
 		System.out.println(str.charAt(0));
 		
 	}
+	
 	
 	
 	

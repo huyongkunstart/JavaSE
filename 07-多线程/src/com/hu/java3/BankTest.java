@@ -7,38 +7,23 @@ package com.hu.java3;
  */
 public class BankTest {
     public static void main(String[] args) {
-
+ 
     }
 }
 
 class Bank{
     private Bank(){};
-    private static Bank instance = null;
-    public static  Bank getInstance(){
-//      方式一：效率稍差
-//        synchronized (Bank.class){
-//            if(instance == null){
-//                instance = new Bank();
-//            }
-//            return instance;
-//        }
+    private static Bank bank = null;
 
-//        方式二：效率高
-        if(instance ==null){
+    public static Bank getBank(){
+        if (bank == null){
             synchronized (Bank.class){
-                if(instance == null){
-                    instance = new Bank();
+                if (bank == null){
+                    bank = new Bank();
                 }
             }
         }
-        return instance;
-
+        return bank;
     }
-
-
-
-
-
-
 }
 
