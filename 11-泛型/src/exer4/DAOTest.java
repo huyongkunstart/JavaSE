@@ -1,29 +1,38 @@
 package exer4;
 
+import org.junit.Test;
+
 import java.util.List;
 
 /**
- * 定义一个测试类：
- *  * 创建 DAO 类的对象， 分别调用其 save、get、update、list、delete 方
- *  * 法来操作 User 对象，
- *  * 使用 Junit 单元测试类进行测试
- * @author hu
- * @create 2022-01-22 23:11
+ * @author huyongkun
+ * @ClassName DAOTest
+ * @create 2022-05-18 9:53
+ * @Version 1.0
+ * @description: TODO
  */
 public class DAOTest {
-    public static void main(String[] args) {
-        DAO<User> dao = new DAO<>();
+    @Test
+    public void test1(){
+        DAO<User> userDAO = new DAO<User>();
+        userDAO.save("AA",new User(1001,18,"guoshuhao"));
+        userDAO.save("BB",new User(1002,23,"walfawf"));
 
-        dao.save("1001",new User(1001,18,"hu"));
-        dao.save("1002",new User(1002,23,"wang"));
-        dao.save("1003",new User(1003,14,"dan"));
+        User aa = userDAO.get("AA");
+        System.out.println("AA--->"+aa);
 
-        dao.update("1003",new User(1005,99,"zhongg"));
+        userDAO.update("BB",new User(1011,99,"张三"));
 
-        dao.delete("1001");
-
-        List<User> list = dao.list();
+        List<User> list = userDAO.list();
+        for (User user : list) {
+            System.out.println(user);
+        }
+        System.out.println("-----------------------------------");
         list.forEach(System.out::println);
+
+        userDAO.delete("AA");
+
+
 
     }
 }

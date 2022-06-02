@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.SimpleFormatter;
 
 /**file类的使用
  *
@@ -26,7 +29,7 @@ public class FileTest {
         File file3 = new File("C:\\Users\\hu\\Desktop","javafile");
         System.out.println(file3);
         //File构造器3
-        File file4 = new File(file3,"a.txt");
+        File file4 = new File(file2,"a.txt");
         System.out.println(file4);
 
     }
@@ -45,16 +48,17 @@ public class FileTest {
  public File[] listFiles() ：获取指定目录下的所有文件或者文件目录的File数组*/
     @Test
     public void test2(){
-        File file = new File("hello.txt");
-        System.out.println(file.getAbsolutePath());
-        System.out.println(file.getPath());
-        System.out.println(file.getName());
-        System.out.println(file.getParent());
-        System.out.println(file.length());
-        System.out.println(file.lastModified());
-
+//        File file = new File("hello.txt");
+        File file = new File("E:\\Desktop");
+        System.out.println(file.getAbsolutePath());//绝对路径
+        System.out.println(file.getPath()); //路径
+        System.out.println(file.getName()); //名字
+        System.out.println(file.getParent()); //上层文件目录
+        System.out.println(file.length()); //文件长度，字节数
+        long l = file.lastModified();
+        System.out.println(new SimpleDateFormat().format(new Date(l))); //最后一次修改时间
         System.out.println("***********************************");
-        File file1 = new File("E:\\Desktop");
+        File file1 = new File("E:\\Desktop\\");
         String[] list = file1.list();
         for(String a : list){
             System.out.println(a);
@@ -73,8 +77,8 @@ public class FileTest {
     */
     @Test
     public void test3(){
-        File file1 = new File("D:\\workspace-idea\\java基础\\12-IO流\\hello.txt");
-        File file2 = new File("D:\\workspace-idea\\java基础\\12-IO流\\hi.txt");
+        File file1 = new File("E:\\workspace-idea\\java基础\\12-IO流\\hello.txt");
+        File file2 = new File("E:\\workspace-idea\\java基础\\12-IO流\\hi.txt");
         boolean b = file1.renameTo(file2);
         System.out.println(b);
     }

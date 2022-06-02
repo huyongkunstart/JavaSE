@@ -3,9 +3,7 @@ package java2;
 import java1.Person;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.*;
 
 /**
  * 集合元素的遍历操作 使用迭代器Iterator集合
@@ -24,7 +22,6 @@ public class IteratorTest {
         coll.add(false);
 
         Iterator iterator = coll.iterator();
-
         //不推荐
 //        for (int i = 0;i<coll.size();i++){
 //            System.out.println(iterator.next());
@@ -62,14 +59,30 @@ public class IteratorTest {
     @Test
     //练习
     public void test3(){
-        String[] str = new String[5];
-        for (String myStr : str) { //把str的值循环取出来给myStr，改变的是myStr的值
+//        String[] str = new String[5];
+        Collection str = Arrays.asList("123","qwe","asda");
+        for (Object myStr : str) { //把str的值循环取出来给myStr，改变的是myStr的值
 //            System.out.println(myStr);
             myStr = "atguigu";
             System.out.println(myStr);
         }
-        for (int i = 0; i < str.length; i++) {
-            System.out.println(str[i]);
+        Iterator iterator = str.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+    }
+
+    @Test
+    public void test4(){
+        Collection str = Arrays.asList("123", "qwe", "asda");
+        //方式一
+        for (Object o : str) {
+            System.out.println(o);
+        }
+        //方法二
+        Iterator iterator = str.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
         }
     }
 

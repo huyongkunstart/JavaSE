@@ -15,17 +15,31 @@ public class FileDemo {
         /*利用File构造器，new 一个文件目录file
         1)在其中创建多个文件和目录
         2)编写方法，实现删除file中指定文件的操作*/
-        File file = new File("E:\\Desktop");
-        File file1 = new File("E:\\Desktop","hu.txt");
-        File file2 = new File(" 遍历指定目录所有文件名称，包括子文件目录中的文件。\n" +
-                "拓展1：并计算指定目录占用空间的大小\n" +
-                "拓展2：删除指定文件目录及其下的所有文件","huhuhu");
-
-        if(file1.createNewFile()){
-           System.out.println("创建文件成功");
+        File file = new File("E:\\Desktop\\java_io_test");
+        boolean mkdir = file.mkdir();
+        if (mkdir){
+            System.out.println("文件夹创建成功");
         }
-        if(file2.mkdir()){
-            System.out.println("创建目录成功");
+
+        for (int i = 0; i < 10; i++) {
+            String str = "hahaha"+i+".txt";
+            File file1 = new File(file,str);
+            boolean newFile = file1.createNewFile();
+            if(newFile){
+                System.out.println(str+"文件创建成功");
+            }
+        }
+//        deletefile(new File(file,"hahaha2.txt"));
+
+    }
+    public void deletefile(File file){
+        if(file.exists()){
+            boolean delete = file.delete();
+            if(delete){
+                System.out.println(file.getName()+" 删除成功");
+            }
+        }else {
+            System.out.println("要删除的文件不存在");
         }
     }
 
@@ -47,20 +61,23 @@ public class FileDemo {
         拓展1：并计算指定目录占用空间的大小
         拓展2：删除指定文件目录及其下的所有文件*/
 
-        File file = new File("E:\\Desktop");
+        File file = new File("E:\\Desktop\\java_io_test");
         //遍历指定目录所有文件名称，包括子文件目录中的文件。
-        printfiles(file);
+        System.out.println("占用空间为:"+printfiles(file));
 
     }
-    public static void printfiles(File dir){
+    public static int printfiles(File dir){
         File[] files = dir.listFiles();
+        int sum = 0;
         for(File f : files){
             if(f.isDirectory()){
-                printfiles(f);
+                sum += printfiles(f);
             }else {
-                System.out.println(f.getAbsolutePath());
+                sum += f.length();
             }
         }
+        return sum;
+
     }
 
 

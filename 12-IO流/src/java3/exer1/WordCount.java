@@ -3,9 +3,7 @@ package java3.exer1;
 import org.junit.Test;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 
 /**
@@ -30,74 +28,63 @@ public class WordCount {
           如果使用main()测试，文件相对路径为当前工程
      */
     @Test
-    public void testWordCount() {
-        FileReader fr = null;
-        BufferedWriter bw = null;
-        try {
-            //1.创建Map集合
-            Map<Character, Integer> map = new HashMap<Character, Integer>();
+    public void testWordCount() throws IOException {
+        //1.创建存放数据的集合
+        HashMap<Character, Integer> map = new HashMap<>();
 
-            //2.遍历每一个字符,每一个字符出现的次数放到map中
-            fr = new FileReader("dbcp.txt");
-            int c = 0;
-            while ((c = fr.read()) != -1) {
-                //int 还原 char
-                char ch = (char) c;
-                // 判断char是否在map中第一次出现
-                if (map.get(ch) == null) {
-                    map.put(ch, 1);
-                } else {
-                    map.put(ch, map.get(ch) + 1);
-                }
-            }
-
-            //3.把map中数据存在文件count.txt
-            //3.1 创建Writer
-            bw = new BufferedWriter(new FileWriter("wordcount.txt"));
-
-            //3.2 遍历map,再写入数据
-            Set<Map.Entry<Character, Integer>> entrySet = map.entrySet();
-            for (Map.Entry<Character, Integer> entry : entrySet) {
-                switch (entry.getKey()) {
-                    case ' ':
-                        bw.write("空格=" + entry.getValue());
-                        break;
-                    case '\t'://\t表示tab 键字符
-                        bw.write("tab键=" + entry.getValue());
-                        break;
-                    case '\r'://
-                        bw.write("回车=" + entry.getValue());
-                        break;
-                    case '\n'://
-                        bw.write("换行=" + entry.getValue());
-                        break;
-                    default:
-                        bw.write(entry.getKey() + "=" + entry.getValue());
-                        break;
-                }
-                bw.newLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            //4.关流
-            if (fr != null) {
-                try {
-                    fr.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-            if (bw != null) {
-                try {
-                    bw.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
+        //2.读取文本，进行统计存放到集合中
+        BufferedReader br = new BufferedReader(new FileReader("dbcp.txt"));
+        int str;
+        while ((str = br.read()) != -1){
+            char ch = (char)str;
+            if(map.get(ch) == null){ //说明集合中没有此字符
+                map.put(ch,1);
+            }else{ //集合中已经存在此字符
+                map.put(ch,map.get(ch)+1);
             }
         }
+
+        //3.按集合中的value进行排序
+        Set<Map.Entry<Character, Integer>> entries = map.entrySet();
+        ArrayList<Map.Entry<Character, Integer>> list = new ArrayList<>(entries);
+        Collections.sort(list, new Comparator<Map.Entry<Character, Integer>>() {
+            @Override
+            public int compare(Map.Entry<Character, Integer> o1, Map.Entry<Character, Integer> o2) {
+                return -Integer.compare(o1.getValue(), o2.getValue());
+            }
+        });
+
+        //4. 创建输出流到文件
+        BufferedWriter bw = new BufferedWriter(new FileWriter("WordCount.txt"));
+        Iterator<Map.Entry<Character, Integer>> iterator = entries.iterator();
+        int count = 0;
+        while (iterator.hasNext() && count <= 10){
+            Map.Entry<Character, Integer> next = iterator.next();
+            switch (next.getKey()){
+                case ' ':
+                    bw.write("空格="+next.getValue());
+                    break;
+                case '\t': //tab键
+                    bw.write("tab键="+next.getValue());
+                    break;
+                case '\r':
+                    bw.write("回车="+next.getValue());
+                    break;
+                case '\n': //tab键
+                    bw.write("换行="+next.getValue());
+                    break;
+                default:
+                    bw.write(next.getKey()+"="+next.getValue());
+            }
+            count++;
+            bw.newLine();
+        }
+
+
+        //5.关闭流
+
+
+
 
     }
 }

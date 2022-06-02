@@ -44,7 +44,7 @@ public class FileReaderWriterTest {
         FileReader fr = null;
         try {
             //1.实例化File类的对象，指明要操作的文件
-            File file = new File("Hello.txt");
+            File file = new File("hu.txt");
             //2.提供具体的流
             fr = new FileReader(file);
             //3.数据的读入
@@ -82,7 +82,7 @@ public class FileReaderWriterTest {
         FileReader fr = null;
         try {
             //1.File类的实例化
-            File file = new File("hello.txt");
+            File file = new File("hu.txt");
             //2.FileReader流的实例化
             fr = new FileReader(file);
             //3.读入的操作

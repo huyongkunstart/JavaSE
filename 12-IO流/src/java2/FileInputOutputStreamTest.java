@@ -2,10 +2,7 @@ package java2;
 
 import org.junit.Test;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 /** 测试 节点流
  * FileInputStream和FileOutputStream字节流的使用
@@ -23,7 +20,7 @@ public class FileInputOutputStreamTest {
         FileInputStream fs = null;
         try {
             //1.实例化File类的对象
-            File file = new File("hello.txt");
+            File file = new File("hu.txt");
 
             //2.实例化FileInputStream字节流
             fs = new FileInputStream(file);
@@ -92,38 +89,31 @@ public class FileInputOutputStreamTest {
 
 
     //写一个方法，指定路径下文件的复制
-    public static void CopyFile(String srcPath,String descPath){
-        FileInputStream fi = null;
-        FileOutputStream fo = null;
+    public static void CopyFile(String beginPath,String endPath) {
+        FileInputStream fs = null;
+        FileOutputStream fos = null;
         try {
-            //1.创建File文件对象
-            File srcfile = new File(srcPath);
-            File descfile = new File(descPath);
+            fs = new FileInputStream(new File(beginPath));
+            fos = new FileOutputStream(new File(endPath));
 
-            //2.创建FileInputStream和FileOutputStream字节流对象
-            fi = new FileInputStream(srcfile);
-            fo = new FileOutputStream(descfile);
-
-            //3.读入和写出操作
             byte[] bytes = new byte[1024];
             int len;
-            while ((len = fi.read(bytes)) != -1){
-                fo.write(bytes,0,len);
+            while ((len = fs.read(bytes)) != -1){
+                fos.write(bytes,0,len);
             }
-        } catch (IOException e) {
+        }catch (IOException e){
             e.printStackTrace();
-        } finally {
-            //4.关闭资源对象
-            if(fi != null){
+        }finally {
+            if(fs != null){
                 try {
-                    fi.close();
+                    fs.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            if(fo != null){
+            if(fos!= null){
                 try {
-                    fo.close();
+                    fos.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -131,11 +121,12 @@ public class FileInputOutputStreamTest {
         }
     }
 
+
     @Test
     public void testCopyFile(){
         long start = System.currentTimeMillis();
-        String srcPath = "D:\\workspace-idea\\java基础\\12-IO流\\魏新雨 - 最美的情缘.mkv";
-        String descPath = "D:\\workspace-idea\\java基础\\12-IO流\\魏新雨最美的情缘复制版.mkv";
+        String srcPath = "魏新雨 - 最美的情缘.mkv";
+        String descPath = "魏新雨最美的情缘复制版.mkv";
         CopyFile(srcPath,descPath);
         long end = System.currentTimeMillis();
         System.out.println("复制操作花费的时间为"+(end-start));//601

@@ -28,7 +28,7 @@ public class ReflectionTest {
         //比如: name 、 showNation() 以及私有的构造器
     }
 
-    //反射之后，对弈Person的操作
+    //反射之后，对于Person的操作
     @Test
     public void test2() throws Exception{
         Class personClass = Person.class;
@@ -123,7 +123,7 @@ public class ReflectionTest {
 
     }
 
-    //4.Class实例可以使哪些结构？
+    //4.Class实例可以是哪些结构？
     @Test
     public void test4(){
         Class c1 = Object.class;

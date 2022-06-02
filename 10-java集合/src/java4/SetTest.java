@@ -3,10 +3,7 @@ package java4;
 import java1.Person;
 import org.junit.Test;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  *
@@ -43,10 +40,26 @@ public class SetTest {
         set.add(new Person("Tom",21));
         set.add(new Person("Tom",21));
         set.add(129);
+        System.out.println();
         Iterator iterator = set.iterator();
         while (iterator.hasNext()){
             System.out.println(iterator.next());
         }
+    }
+    @Test
+    public void test11(){
+        HashSet set = new HashSet();
+        Person p1 = new Person("AA",1001);
+        Person p2 = new Person("BB",1002);
+        set.add(p1);
+        set.add(p2);
+        p1.setName("CC");
+        set.remove(p1);
+        System.out.println(set);
+        set.add(new Person("CC",1001));
+        System.out.println(set);
+        set.add(new Person("AA",1001));
+        System.out.println(set);
     }
 
     @Test
@@ -66,6 +79,16 @@ public class SetTest {
         while (iterator.hasNext()){
             System.out.println(iterator.next());
         }
+    }
+
+    //练习：在List内去除重复数字值，要求尽量简单
+    @Test
+    public void test3(){
+        List list = Arrays.asList(23, 435, 56, 23, 56, 1, 1, 0, 0, 0);
+        System.out.println(list);
+        HashSet hashSet = new HashSet(list);
+        ArrayList list2 = new ArrayList(hashSet);
+        System.out.println(list2);
     }
 
 

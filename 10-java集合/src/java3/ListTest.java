@@ -19,12 +19,6 @@ import java.util.*;
  *面试题：ArrayList LinkedList Vector三者的异同
  * 同：三个类都实现了List接口，存储数据的特点相同：存储有序的，可重复的数据
  *
- *
- *
- *
- *
- *
- *
  * @author hu
  * @create 2022-01-03 17:07
  */
@@ -45,12 +39,15 @@ public class ListTest {
         Object[] a = new Object[]{};
         System.out.println(a.length);
 
-        List list = Arrays.asList(123, 456, "aa", "bb", 'a', false);
+        List list= Arrays.asList(123, 456, "aa", "bb", 'a', false);
+        //如果在将String[]转化为List< String >的时候，
+        //是不能对转化出来的结果进行add，remove操作的，
+        //因为他们并不是我们熟悉的ArrayList，而是Arrays里面的内部类ArrayList。
         List list1 = new ArrayList(list);
         System.out.println(list1);
 
         //add()
-        list1.add(0, LocalDate.now());
+        list1.add(0, LocalDateTime.now());
         System.out.println(list1);
 
         //get()

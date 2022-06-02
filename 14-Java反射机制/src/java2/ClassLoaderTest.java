@@ -19,6 +19,7 @@ public class ClassLoaderTest {
         //对于自定义类，使用系统类加载器进行加载
         ClassLoader classLoader = ClassLoaderTest.class.getClassLoader();
         System.out.println(classLoader);
+        System.out.println(ClassLoader.getSystemClassLoader());
 
         //调用系统类加载器的getParent()：获取拓展类加载器
         ClassLoader classLoader1 = classLoader.getParent();

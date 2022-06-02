@@ -29,7 +29,6 @@ public class TreeMapTest {
             //enterSet集合中的元素都是entry
             Map.Entry entry = (Map.Entry)obj;
             System.out.println(entry.getKey()+"--->"+entry.getValue());
-//            System.out.println(iterator.next());
         }
 
     }

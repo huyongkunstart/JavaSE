@@ -3,10 +3,7 @@ package java4;
 import java1.Person;
 import org.junit.Test;
 
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * @author hu
@@ -82,6 +79,7 @@ public class TreeSetTest {
             System.out.println(iterator.next());
         }
     }
+
 
 
 }

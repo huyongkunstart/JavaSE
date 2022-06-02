@@ -1,15 +1,15 @@
 package exer1;
 
+import java.util.Comparator;
+
 /**
- * 1. 定义一个 Employee 类。
- * 该类包含：private 成员变量 name,age,birthday，其中 birthday 为
- * MyDate 类的对象；
- * 并为每一个属性定义 getter, setter 方法；
- * 并重写 toString 方法输出 name, age, birthday
- * @author hu
- * @create 2022-01-04 15:11
+ * @author huyongkun
+ * @ClassName Employee
+ * @create 2022-05-17 12:51
+ * @Version 1.0
+ * @description: TODO
  */
-public class Employee implements Comparable<Employee>{
+public class Employee implements Comparable {
     private String name;
     private int age;
     private MyDate birthday;
@@ -56,9 +56,13 @@ public class Employee implements Comparable<Employee>{
                 '}';
     }
 
+    //自然排序，按照name排序
     @Override
-    //并按 name 排序
-    public int compareTo(Employee o) {
-        return this.name.compareTo(o.name);
+    public int compareTo(Object o) {
+        if(o instanceof Employee){
+            Employee e = (Employee) o;
+            return this.name.compareTo(e.name);
+        }
+        throw new RuntimeException("输入的数据类型不一致");
     }
 }

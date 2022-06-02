@@ -1,0 +1,41 @@
+package com.TeamSchedule.b;
+
+public class index13_回形数2 {
+	public static void main(String[] args) {
+		int n = 7;
+		int[][] arr = new int[n][n];
+
+		int count = 0; // 要显示的数据
+		int maxX = n - 1; // x轴的最大下标
+		int maxY = n - 1; // Y轴的最大下标
+		int minX = 0; // x轴的最小下标
+		int minY = 0; // Y轴的最小下标
+		while (minX <= maxX) {
+			for (int x = minX; x <= maxX; x++) {
+				arr[minY][x] = ++count;
+			}
+			minY++;
+			for (int y = minY; y <= maxY; y++) {
+				arr[y][maxX] = ++count;
+			}
+			maxX--;
+			for (int x = maxX; x >= minX; x--) {
+				arr[maxY][x] = ++count;
+			}
+			maxY--;
+			for (int y = maxY; y >= minY; y--) {
+				arr[y][minX] = ++count;
+			}
+			minX++;
+		}
+
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr.length; j++) {
+				String space = (arr[i][j] + "").length() == 1 ? "0" : "";
+				System.out.print(space + arr[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+
+}

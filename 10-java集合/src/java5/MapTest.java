@@ -112,20 +112,17 @@ public class MapTest {
         Set set1 = map.entrySet();
         Iterator iterator2 = set1.iterator();
         while (iterator2.hasNext()){
-            Object obj = iterator2.next();
-            //enterSet集合中的元素都是Entry
-            Map.Entry entry = (Map.Entry)obj;
-            System.out.println(entry.getKey()+"--->"+entry.getValue());
+            Object next = iterator2.next();
+            Map.Entry entry = (Map.Entry)next;
+            System.out.println(entry.getKey()+"---->"+entry.getValue());
         }
-
-
         //方式二
-        Set keyset = map.keySet();
-        Iterator iterator3 = keyset.iterator();
+        Set keySet = map.keySet();
+        Iterator iterator3 = keySet.iterator();
         while (iterator3.hasNext()){
             Object key = iterator3.next();
             Object value = map.get(key);
-            System.out.println(key+"--->"+value);
+            System.out.println(key+"---->"+value);
         }
 
 

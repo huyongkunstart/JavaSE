@@ -23,7 +23,7 @@ public class EmployeeTest {
         Employee e2 = new Employee("liudehua",44,new MyDate(1956,12,25));
         Employee e3 = new Employee("zhoujie",45,new MyDate(1876,11,15));
         Employee e4 = new Employee("guoshuhao",23,new MyDate(1901,9,7));
-        Employee e5 = new Employee("liujin",23,new MyDate(2000,9,23));
+        Employee e5 = new Employee("zhpngsan",23,new MyDate(2000,9,23));
 
         TreeSet set = new TreeSet();
         set.add(e1);

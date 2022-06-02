@@ -97,7 +97,6 @@ public class GenericTest {
         //读取数据 可以读取数据
         list1 = list3;
         Person person = list1.get(0);
-
         list2 = list4;
         Object object = list2.get(0);
 

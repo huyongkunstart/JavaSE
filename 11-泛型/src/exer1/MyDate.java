@@ -1,10 +1,11 @@
 package exer1;
 
 /**
- * MyDate 类包含:
- * private 成员变量 year,month,day；并为每一个属性定义 getter, setter方法；
- * @author hu
- * @create 2022-01-04 15:09
+ * @author huyongkun
+ * @ClassName MyDate
+ * @create 2022-05-17 12:51
+ * @Version 1.0
+ * @description: TODO
  */
 public class MyDate implements Comparable<MyDate>{
     private int year;
@@ -50,20 +51,19 @@ public class MyDate implements Comparable<MyDate>{
                 '}';
     }
 
-
     @Override
     public int compareTo(MyDate o) {
         //比较年
-        int minusYear = this.getYear() - o.getYear();
-        if (minusYear != 0) {
-            return minusYear;
+        int a =this.year - o.year;
+        if(a!=0){
+            return a;
         }
         //比较月
-        int minusMonth = this.getMonth() - o.getMonth();
-        if (minusMonth != 0) {
-            return minusMonth;
+        int b = this.month - o.month;
+        if(b != 0){
+            return b;
         }
         //比较日
-        return this.getDay() - o.getDay();
+        return this.day - o.day;
     }
 }

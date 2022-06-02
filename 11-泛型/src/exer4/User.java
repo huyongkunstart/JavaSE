@@ -1,20 +1,16 @@
 package exer4;
 
-import java.util.Objects;
-
 /**
- * 定义一个 User 类：
- * 该类包含：private 成员变量（int 类型） id，age；（String 类型）name。
- * @author hu
- * @create 2022-01-22 22:55
+ * @author huyongkun
+ * @ClassName User
+ * @create 2022-05-18 9:52
+ * @Version 1.0
+ * @description: TODO
  */
 public class User {
     private int id;
     private int age;
     private String name;
-
-    public User() {
-    }
 
     public User(int id, int age, String name) {
         this.id = id;
@@ -59,14 +55,19 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         User user = (User) o;
-        return id == user.id &&
-                age == user.age &&
-                Objects.equals(name, user.name);
+
+        if (id != user.id) return false;
+        if (age != user.age) return false;
+        return name != null ? name.equals(user.name) : user.name == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, age, name);
+        int result = id;
+        result = 31 * result + age;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
     }
 }

@@ -76,9 +76,17 @@ public class GenericTest {
             Integer value = next.getValue();
             System.out.println(key+"---->语文考了"+value+"分");
         }*/
-        for(Map.Entry<String,Integer> entry : set){
+
+        /*for(Map.Entry<String,Integer> entry : set){
             System.out.println(entry.getKey()+"------->语文考了"+entry.getValue()+"分");
-        }
+        }*/
+
+/*        Set<String> set1 = map.keySet();
+        Iterator<String> iterator = set1.iterator();
+        while (iterator.hasNext()){
+            String key = iterator.next();
+            System.out.println(key+"----"+map.get(key));
+        }*/
 
     }
 
