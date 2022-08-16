@@ -33,17 +33,24 @@ public class InsertTest {
     //批量插入方式二
     @Test
     public void testInsert1() throws Exception{
-        Connection conn = JDBCUtils.getConnection();
-        String sql = "insert into goods(name) values(?)";
-        PreparedStatement ps = conn.prepareStatement(sql);
-        long start = System.currentTimeMillis();
-        for (int i = 0; i < 20000; i++) {
-            ps.setObject(1,"name_"+i);
-            ps.execute();
+        Connection conn = null;
+        PreparedStatement ps =null;
+        try {
+            long begin = System.currentTimeMillis();
+            conn = JDBCUtils.getConnection();
+            String sql = "insert into goods(name) values(?)";
+            ps = conn.prepareStatement(sql);
+            for (int i = 0; i < 20000; i++) {
+                ps.setObject(1,"name_"+i);
+                ps.executeUpdate();
+            }
+            long after = System.currentTimeMillis();
+            System.out.println(after-begin);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            JDBCUtils.closeResource(conn, ps);
         }
-        long end = System.currentTimeMillis();
-        System.out.println("花费的时间为："+(end-start)); //花费的时间为：25614
-        JDBCUtils.closeResource(conn,ps);
     }
 
     //批量插入方式三
@@ -62,7 +69,7 @@ public class InsertTest {
         String sql = "insert into goods(name) values(?)";
         PreparedStatement ps = conn.prepareStatement(sql);
         long start = System.currentTimeMillis();
-        for (int i = 0; i < 20000; i++) {
+        for (int i = 1; i <= 20000; i++) {
             ps.setObject(1,"name_"+i);
 
             //1."攒"sql

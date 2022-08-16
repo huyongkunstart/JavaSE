@@ -2,6 +2,7 @@ package java2;
 
 import org.junit.Test;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -38,16 +39,16 @@ public class ClassLoaderTest {
         Properties properties = new Properties();
 
         //此时的文件默认在当前的module下
-        /*读取配置文件的方式一：默认识别在Module下
+        //读取配置文件的方式一：默认识别在Module下
         FileInputStream jdbc = new FileInputStream("jdbc.properties");
-        properties.load(jdbc.properties);*/
+        properties.load(jdbc);
 
         //取配置文件的方式二：使用ClassLoader
         //配置文件默认识别为：当前Module下的src下
-        ClassLoader classLoader = ClassLoaderTest.class.getClassLoader();
-        InputStream is = classLoader.getResourceAsStream("jdbc.properties");
-
-        properties.load(is);
+//        ClassLoader classLoader = ClassLoaderTest.class.getClassLoader();
+//        InputStream is = classLoader.getResourceAsStream("jdbc.properties");
+//
+//        properties.load(is);
 
         String user = properties.getProperty("user");
         String password = properties.getProperty("password");

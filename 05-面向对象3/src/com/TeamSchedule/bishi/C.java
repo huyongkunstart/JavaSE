@@ -7,8 +7,6 @@ interface A{
 class B{
 	int x =1;
 }
-
-
 public class C extends B implements A {
 	public void pX() {
 		//System.out.println(x); 报错

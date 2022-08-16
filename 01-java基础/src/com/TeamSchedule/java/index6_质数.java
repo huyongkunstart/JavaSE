@@ -12,7 +12,7 @@ public class index6_质数 {
 					break;
 				}
 			}
-			if(a==true) {
+			if(a) {
 
 				count++;				
 			}		

@@ -20,8 +20,8 @@ public class CMUtility {
     private static String readKeyBoard(int limit,boolean blankreturn){
         String line = "";
         while (scanner.hasNextLine()){
-            line = scanner.nextLine();
-            if(line.length() == 0){
+            line = scanner.nextLine(); //可以捕获到裸回车
+            if(line.length() == 0){  //相当于直接敲回车
                 if(blankreturn){
                     return line;
                 }else {

@@ -2,6 +2,7 @@ package com.hu2.java1;
 
 import java.util.TreeMap;
 import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
 /**

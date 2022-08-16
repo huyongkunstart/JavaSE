@@ -114,6 +114,8 @@ public class exer2Test {
         }
     }
 
+
+
     public static  <T> T getInstance (Class<T> clazz,String sql,Object ...args){
         Connection conn = null;
         PreparedStatement ps = null;

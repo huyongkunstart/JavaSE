@@ -16,6 +16,8 @@ package com.TeamSchedule.b;
 10  9   8   7            
 */
 
+import org.junit.Test;
+
 import java.util.*;
 
 public class index12_回形数1 {
@@ -60,7 +62,7 @@ public class index12_回形数1 {
 					j++;
 					m--;
 				}
-			} else if (k == 4) {
+			} else {
 				if (i >= 0 && arr[i][j] == 0) {
 					arr[i--][j] = m;
 				} else {

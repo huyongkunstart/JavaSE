@@ -5,7 +5,7 @@ package com.TeamSchedule.c1.test;
 //问题一：打印出3年级的学生信息
 //问题二：使用冒泡排序按学生成绩排序，并遍历所有学生信息
 
-//提示：生成随机数: Math.random()  返回值为double类型
+//提示：生成随机数: Math.random()  返回值为double类型 //大于等于 0.0 且小于 1.0。
 //四舍五入取整： Math.round(double d) 返回值类型Long
 public class index1_test {
 	public static void main(String[] args) {

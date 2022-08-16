@@ -39,7 +39,6 @@ public class PreparedStatementUpdateTest {
         } finally {
             JDBCUtils.closeResource(conn,ps);
         }
-
     }
 
     //向customers表中添加一条记录

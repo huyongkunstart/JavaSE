@@ -75,10 +75,11 @@ public class Reflection {
 
 
         System.out.println("****************调用静态方法*******************");
-        //调用静态方法
-        Method showDesc = clazz.getDeclaredMethod("showDesc");
+        //调用静态方法 invoke() 可以为null  可以为类.class  对象
+        Method showDesc = clazz.getDeclaredMethod("showDesc",int.class);
         showDesc.setAccessible(true);
-        Object invoke = showDesc.invoke(Person.class);
+//        Object invoke = showDesc.invoke(null,100); //可以
+        Object invoke = showDesc.invoke(p,100);
         System.out.println(invoke); //null
     }
 

@@ -25,5 +25,8 @@ class Plane implements Fly{
 	public void aaa() {
 		System.out.println("aaaaaaaaaa");
 	}
+	public void show(){
+		Fly.qqq();
+	}
 	
 }

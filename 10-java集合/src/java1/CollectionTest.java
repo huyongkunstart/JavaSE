@@ -113,52 +113,6 @@ public class CollectionTest {
         //iterator() 返回Iterator接口的实例，用于遍历集合元素，放在IteratorTest.java中
 
     }
-    @Test
-    public void test4(int[] arr){
-        //冒牌排序
-        for (int i = 0; i < arr.length-1; i++) {
-            boolean flag = false;
-            for (int j = 0; j < arr.length - i - 1; j++) {
-                if(arr[j+1] < arr[j]){
-                    int tmp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = tmp;
-                    flag = true;
-                }
-            }
-            if(!flag){
-                break;
-            }
-        }
 
-
-        //选择排序
-        for (int i = 0; i < arr.length - 1; i++) {
-            int min = i;
-            for (int j = i+1; j < arr.length; j++) {
-                if(arr[j]<arr[min]){
-                    min = j;
-                }
-            }
-            int tmp = arr[i];
-            arr[i] = arr[min];
-            arr[min] = tmp;
-        }
-    }
-    public static int serach(int[] arr,int m){
-        int left = 0;
-        int right = arr.length-1;
-        while (right >= left){
-            int middle = (left + right)/2;
-            if(arr[middle] > m){
-                right = middle-1;
-            }else if(arr[middle] < m){
-                left = middle+1;
-            }else{
-                return middle;
-            }
-        }
-        return -1;
-    }
 
 }

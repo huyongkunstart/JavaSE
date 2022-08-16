@@ -1,6 +1,6 @@
 package com.hu3.preparedstatement.curd;
 
-import com.hu3.bean.Cusomer;
+import com.hu3.bean.Customer;
 import com.hu3.util.JDBCUtils;
 import org.junit.Test;
 
@@ -16,12 +16,12 @@ public class CustomerForQuery {
     @Test
     public void testQueryForCustomers(){
         String sql = "select id,name,birth,email from customers where id = ?";
-        Cusomer cusomer = QueryForCustomers(sql, 13);
-        System.out.println(cusomer);
+        Customer customer = QueryForCustomers(sql, 13);
+        System.out.println(customer);
     }
 
     //针对customers表的通用的查询操作
-    public static Cusomer QueryForCustomers(String sql , Object ...args){
+    public static Customer QueryForCustomers(String sql , Object ...args){
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -39,7 +39,7 @@ public class CustomerForQuery {
             int columnCount = rsmd.getColumnCount();
 
             if(rs.next()){
-                Cusomer cust = new Cusomer();
+                Customer cust = new Customer();
                 //处理结果集一行数据中的每一列
                 for (int i = 0; i < columnCount; i++) {
                     //获取列值
@@ -49,7 +49,7 @@ public class CustomerForQuery {
                     //获取列的别名
                     String columnLabel = rsmd.getColumnLabel(i + 1);
                     //给cust对象指定的columnName属性，赋值为columnValue： 通过反射
-                    Field field = Cusomer.class.getDeclaredField(columnLabel);
+                    Field field = Customer.class.getDeclaredField(columnLabel);
                     field.setAccessible(true);
                     field.set(cust,columValue);
                 }
@@ -99,8 +99,8 @@ public class CustomerForQuery {
     //            Object[] data = new Object[]{id,name,email,birth};
 
                 //方式三 将数据封装成一个对象
-                Cusomer cusomer = new Cusomer(id, name, email, birth);
-                System.out.println(cusomer);
+                Customer customer = new Customer(id, name, email, birth);
+                System.out.println(customer);
 
             }
         } catch (Exception e) {

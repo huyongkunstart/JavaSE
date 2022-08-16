@@ -32,7 +32,7 @@ public class Account {
     public void setBalance(double balance) {
         this.balance = balance;
     }
-    public void withdraw(double money){
+    public synchronized void withdraw(double money){
         //取款之前的余额
         double befor = balance;
         //取款之后的余额
@@ -60,6 +60,6 @@ class AccountThread extends Thread{
     @Override  
     public void run() {
         acc.withdraw(5000);
-        System.out.println(acc.getId()+"成功取款5000元，余额为"+acc.getBalance());
+        System.out.println(Thread.currentThread().getName()+"成功取款5000元，余额为"+acc.getBalance());
     }
 }

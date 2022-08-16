@@ -48,11 +48,11 @@ public class Person implements Comparable{
         if (o instanceof Person) {
             Person person = (Person) o;
             int compare = this.name.compareTo(person.name);
-            if(compare != 0){
-                return compare;
-            }else {
-                return Integer.compare(this.age,person.age);
+
+            if(compare == 0){
+                return Integer.compare(this.age, person.age);
             }
+            return compare;
         }
         throw new RuntimeException("输入的类型不匹配");
 

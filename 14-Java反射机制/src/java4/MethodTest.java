@@ -42,7 +42,7 @@ public class MethodTest {
             //1.获取方法的注解
             Annotation[] annotations = m.getAnnotations();
             for(Annotation a : annotations){
-                System.out.println(a);
+                System.out.print(a);
             }
             //2.权限修饰符
             System.out.print(Modifier.toString(m.getModifiers()) + "\t");
@@ -54,16 +54,14 @@ public class MethodTest {
             //5.形参列表
 
             Class [] parameterTypes = m.getParameterTypes();
-            if(!(parameterTypes == null && parameterTypes.length == 0)){
-                for(int i =0 ; i< parameterTypes.length ; i++){
+            for(int i =0 ; i< parameterTypes.length ; i++){
 
-                    if(i == parameterTypes.length - 1){
-                        System.out.print(parameterTypes[i].getName() + " args_" + i);
-                        break;
-                    }
-
-                    System.out.print(parameterTypes[i].getName() + " args_" + i+",");
+                if(i == parameterTypes.length - 1){
+                    System.out.print(parameterTypes[i].getName() + " args_" + i);
+                    break;
                 }
+
+                System.out.print(parameterTypes[i].getName() + " args_" + i+",");
             }
             System.out.print(") ");
             //6.抛出异常

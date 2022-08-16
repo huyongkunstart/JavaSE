@@ -11,6 +11,6 @@ public class ErrerTest {
 //		main(args);
 		
 		//java.lang.OutOfMemoryError  堆溢出
-		Integer[] arr = new Integer[1024*1024*1024*1024];
+		Integer[] arr = new Integer[1024*1024*1024];
 	}
 }

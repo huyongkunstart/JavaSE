@@ -18,6 +18,45 @@ public class Test1 {
         DecimalFormat df=new DecimalFormat("0.00");//设置保留位数
         System.out.println(df.format((float) 5 / 2));
     }
+    //一维数组小练习，求电话号码
+    @Test
+    public void test0(){
+        int[] arr = new int[] {3,9,1,5,0,6};
+        String tel="";
+        int[] index=new int[] {2,3,3,0,1,5,1,1,4,4,2};
+        for(int i=0;i<index.length;i++) {
+            tel+=arr[index[i]];
+        }
+        System.out.println(tel);
+    }
+    @Test
+    public void test01(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("请输入学生人数:");
+        int n = scanner.nextInt();
+        float gray[] = new float[n];
+        float max=Float.MIN_VALUE;
+        System.out.println("请输入"+n+"个学生成绩：");
+        for (int i = 0; i < gray.length; i++) {
+            gray[i] = scanner.nextFloat();
+            if(gray[i]>max) {
+                max=gray[i];
+            }
+        }
+        System.out.println("最高分为:"+max);
+        for(int i=0;i<gray.length;i++) {
+            if(gray[i]>=max-10) {
+                System.out.println("Student "+i+" score is "+gray[i]+" grade is A");
+            }else if(gray[i]>=max-20) {
+                System.out.println("Student "+i+" score is "+gray[i]+" grade is B");
+            }else if(gray[i]>=max-30) {
+                System.out.println("Student "+i+" score is "+gray[i]+" grade is C");
+            }else {
+                System.out.println("Student "+i+" score is "+gray[i]+" grade is D");
+            }
+        }
+    }
 
     @Test
     public void test1(){
@@ -37,9 +76,9 @@ public class Test1 {
         System.out.println(Arrays.toString(arr1));
     }
 
+    //判断数组中是否存在相同的元素，如果存在输出“重复”，否者输出“不重复"
     @Test
     public void test2(){
-        //判断数组中是否存在相同的元素，如果存在输出“重复”，否者输出“不重复"
         int[] arr = new int[]{1,2,3,4,0};
         Label:for (int i = 0; i < arr.length - 1; i++) {
             for (int j = i+1; j < arr.length; j++) {
@@ -76,9 +115,9 @@ public class Test1 {
 
     }
 
+    //将数组中0项去掉，将不为0的存入一个新数组
     @Test
     public void test3(){
-        //将数组中0项去掉，将不为0的存入一个新数组
         int[] arr = {12,4,0,4,5,0,4,33,89,0};
         int sum = 0;
         for (int j : arr) {
@@ -99,9 +138,9 @@ public class Test1 {
     }
 
 
+    //输出 1 1 2 3 5 8 13... 斐波那契数列Fibonacci 输出20个数字
     @Test
     public void test4(){
-        //输出 1 1 2 3 5 8 13... 斐波那契数列Fibonacci 输出20个数字
         int[] arr = new int[20];
         arr[0] = 1;
         arr[1] = 1;
@@ -180,6 +219,64 @@ public class Test1 {
         }
         return -(left+1);
     }
+
+    //创建一个长度为6的int型数组，要求数组元素的值都在1-30之间，且是随机赋值，
+    //同时要求元素的值各不相同
+    @Test
+    public void test8(){
+        /*
+		 * int arr[] =new int[6];
+		 * for(int i=0;i<arr.length;i++) {
+		 * arr[i]=(int)(Math.random()*30)+1;
+		 * boolean flag=true;
+		 * while(true) {
+			 for(int j=0;j<i;j++) {
+			 		if(arr[i] == arr[j]) {
+			 		flag=true; break;
+			  		}
+			 }
+		 	 if(flag) {
+		 		arr[i]=(int)(Math.random()*30)+1;
+		 		flag=false; continue;
+		 	 }
+		  	 break;
+		  }
+		 * }
+		 */
+
+        //方法二
+        int[] arr = new int[6];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (Math.random() * 30) + 1;
+
+            for (int j = 0; j < i; j++) {
+                if (arr[i] == arr[j]) {
+                    i--;
+                    break;
+                }
+            }
+        }
+
+        for(int i=0;i<arr.length;i++) {
+            System.out.println(arr[i]);
+        }
+    }
+
+
+    //回形数
+    @Test
+    public void test9(){
+            String s1 = new String("学习Java的小姐姐");
+            s1.intern();
+            String s2 = "学习Java的小姐姐";
+            System.out.println(s1 == s2); //false
+
+            String s3 = new String("学习Java的小姐姐") + new String("test");
+            s3.intern();
+            String s4 = "学习Java的小姐姐test";
+            System.out.println(s3 == s4); //true
+    }
+
 
 
 }

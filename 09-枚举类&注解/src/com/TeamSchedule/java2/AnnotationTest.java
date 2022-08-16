@@ -24,7 +24,7 @@ public class AnnotationTest {
 class Aaa<@MyAnnotation T>{
     //在抛异常的地方和泛型内 TYPE_USE
     public void show() throws @MyAnnotation RuntimeException{
-        ArrayList<@MyAnnotation String> strings = new ArrayList<>();
+        ArrayList<@MyAnnotation String> list = new ArrayList<>();
     }
 }
 

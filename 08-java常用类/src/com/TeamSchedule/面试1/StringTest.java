@@ -6,6 +6,7 @@ package com.TeamSchedule.面试1;
 public class StringTest {
     String str = new String("good");
     char[] ch = { 't', 'e', 's', 't' };
+
     public void change(String str, char ch[]) {
         str = "test ok";
         ch[0] = 'b';

@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Date;
 
 /**
  * 1. jdk 7.0 时，引入了 Path、Paths、Files三个类。
@@ -46,7 +47,9 @@ public class PathTest {
 //		boolean startsWith(String path) : 判断是否以 path 路径开始
         System.out.println(path1.startsWith("d:\\nio"));
 //		boolean endsWith(String path) : 判断是否以 path 路径结束
-        System.out.println(path1.endsWith("hello.txt"));
+        System.out.println(path1.endsWith("\\hello.txt")); //false
+        System.out.println(path1.endsWith("nio2\\hello.txt")); //true
+        System.out.println(path1.endsWith("hello.txt")); //true
 //		boolean isAbsolute() : 判断是否是绝对路径
         System.out.println(path1.isAbsolute() + "~");
         System.out.println(path2.isAbsolute() + "~");
@@ -78,8 +81,6 @@ public class PathTest {
         File file = path1.toFile();//Path--->File的转换
 
         Path newPath = file.toPath();//File--->Path的转换
-
     }
-
 
 }

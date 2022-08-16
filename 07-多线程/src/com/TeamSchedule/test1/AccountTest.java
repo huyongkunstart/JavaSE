@@ -54,7 +54,5 @@ public class AccountTest {
 
         c1.start();
         c2.start();
-
-
     }
 }

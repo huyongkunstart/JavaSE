@@ -43,8 +43,6 @@ class Window implements Runnable{
                 lock.lock();
 
                 if(tick>0){
-
-
                     System.out.println(Thread.currentThread().getName()+ "售票，票号为:"+tick--);
                 }else {
                     break;

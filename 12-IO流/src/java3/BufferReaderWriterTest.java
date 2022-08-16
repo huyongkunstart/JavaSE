@@ -2,6 +2,7 @@ package java3;
 
 import org.junit.Test;
 
+import java.awt.*;
 import java.io.*;
 
 /**
@@ -31,7 +32,7 @@ public class BufferReaderWriterTest {
         BufferedWriter bw = null;
         try {
             br = new BufferedReader(new FileReader(new File("dbcp.txt")));
-            bw = new BufferedWriter(new FileWriter(new File("dbcp1.txt")));
+            bw = new BufferedWriter(new FileWriter(new File("E:\\Desktop\\test\\a\\asd.txt")));
 
             //读写数据
             //方式一：char[]数组

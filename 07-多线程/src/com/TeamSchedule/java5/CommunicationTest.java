@@ -1,5 +1,8 @@
 package com.TeamSchedule.java5;
 
+
+import java.util.concurrent.FutureTask;
+
 /**
  * 线程通信的例子：使用两个线程打印1-100 线程1 线程2 交替打印
  * @author hu
@@ -26,6 +29,7 @@ class Number implements Runnable{
                     number++;
                     //将当前调用wait（）方法的线程阻塞
                     try {
+
                         this.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();

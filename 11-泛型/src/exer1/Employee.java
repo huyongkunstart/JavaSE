@@ -9,7 +9,7 @@ import java.util.Comparator;
  * @Version 1.0
  * @description: TODO
  */
-public class Employee implements Comparable {
+public class Employee implements Comparable<Employee> {
     private String name;
     private int age;
     private MyDate birthday;
@@ -58,11 +58,7 @@ public class Employee implements Comparable {
 
     //自然排序，按照name排序
     @Override
-    public int compareTo(Object o) {
-        if(o instanceof Employee){
-            Employee e = (Employee) o;
-            return this.name.compareTo(e.name);
-        }
-        throw new RuntimeException("输入的数据类型不一致");
+    public int compareTo(Employee o) {
+        return this.name.compareTo(o.name);
     }
 }

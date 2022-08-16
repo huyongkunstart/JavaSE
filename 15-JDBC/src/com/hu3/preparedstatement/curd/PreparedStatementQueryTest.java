@@ -1,6 +1,6 @@
 package com.hu3.preparedstatement.curd;
 
-import com.hu3.bean.Cusomer;
+import com.hu3.bean.Customer;
 import com.hu3.bean.Order;
 import com.hu3.util.JDBCUtils;
 import org.junit.Test;
@@ -23,8 +23,8 @@ public class PreparedStatementQueryTest {
     @Test
     public void test1(){
         String sql = "select id,name,email from customers where id = ?";
-        Cusomer cusomer = getInstance(Cusomer.class, sql, 12);
-        System.out.println(cusomer);
+        Customer customer = getInstance(Customer.class, sql, 12);
+        System.out.println(customer);
 
         String sql1 = "select order_id orderid,order_name ordername from `order` where order_id=?";
         Order order = getInstance(Order.class, sql1, 1);
@@ -84,7 +84,7 @@ public class PreparedStatementQueryTest {
     @Test
     public void test2(){
         String sql = "select id,name,email from customers where id < ?";
-        List<Cusomer> list = getForList(Cusomer.class, sql, 12);
+        List<Customer> list = getForList(Customer.class, sql, 12);
         list.forEach(System.out::println);
     }
     /**

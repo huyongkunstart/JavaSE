@@ -43,6 +43,7 @@ public class JDK8DateTime {
         System.out.println("****************************************");
         //加属性
         LocalDateTime localDateTime2 = localDateTime.plusMonths(3);
+        LocalDateTime localDateTime22 = localDateTime.plusYears(3);
         System.out.println(localDateTime);
         System.out.println(localDateTime2);
         System.out.println("****************************************");

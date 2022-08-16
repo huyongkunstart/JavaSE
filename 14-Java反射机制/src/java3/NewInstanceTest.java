@@ -3,6 +3,7 @@ package java3;
 import java1.Person;
 import org.junit.Test;
 
+import java.util.GregorianCalendar;
 import java.util.Random;
 
 /**
@@ -34,7 +35,6 @@ public class NewInstanceTest {
 
     //体会反射的动态性例子
     @Test
-
     public void test2() throws Exception {
         int num = new Random().nextInt(3); //0,1,2
         String classPath = "";
@@ -58,5 +58,6 @@ public class NewInstanceTest {
         Class clazz = Class.forName(classPath);
         return clazz.newInstance();
     }
+
 
 }

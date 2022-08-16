@@ -67,5 +67,11 @@ public class InputStreamReaderTest {
         }
 
     }
+    @Test
+    public void test1(){
+//        FileInputStream  FileOutputStream   FileReader  FileWriter 节点流
+//        BufferedInputStream  BufferedOutputStream BufferedReader BufferedWriter  处理流
+//        InputStreamReader   OutputStreamWriter
+    }
 
 }

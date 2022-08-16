@@ -2,6 +2,8 @@ package java1;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -40,6 +42,13 @@ public class OrderTest {
         //泛型方法的调用时，指明泛型参数的类型
         List<Integer> integers = order.copyFromArrayToList(arr);
         System.out.println(integers);
+
+        order.test1(new Date(),12);
+
+        //
+        List<String>  list1 = null;
+        ArrayList<String> list2 = null;
+        list1 = list2;
 
     }
 

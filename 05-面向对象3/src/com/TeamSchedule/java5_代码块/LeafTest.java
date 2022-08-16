@@ -41,7 +41,7 @@ class Leaf extends Mid{
 	}	
 	public Leaf(){
 		//通过super调用父类中有一个字符串参数的构造器
-		super("尚硅谷");
+		super("AAA");
 		System.out.println("Leaf的构造器"); //10
 	}
 }

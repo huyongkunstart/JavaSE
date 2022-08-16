@@ -3,6 +3,7 @@ package java2;
 import org.junit.Test;
 
 import java.io.*;
+import java.util.Arrays;
 
 /** 测试 节点流
  * FileInputStream和FileOutputStream字节流的使用
@@ -26,11 +27,11 @@ public class FileInputOutputStreamTest {
             fs = new FileInputStream(file);
 
             //3.读入数据
-            byte[] bytes = new byte[5];
+            byte[] bytes = new byte[6];
             int len;
             while ((len = fs.read(bytes)) != -1 ){
                 String s = new String(bytes, 0, len);
-                System.out.print(s);
+                System.out.println(s);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -96,7 +97,7 @@ public class FileInputOutputStreamTest {
             fs = new FileInputStream(new File(beginPath));
             fos = new FileOutputStream(new File(endPath));
 
-            byte[] bytes = new byte[1024];
+            byte[] bytes = new byte[4];
             int len;
             while ((len = fs.read(bytes)) != -1){
                 fos.write(bytes,0,len);
@@ -125,8 +126,8 @@ public class FileInputOutputStreamTest {
     @Test
     public void testCopyFile(){
         long start = System.currentTimeMillis();
-        String srcPath = "魏新雨 - 最美的情缘.mkv";
-        String descPath = "魏新雨最美的情缘复制版.mkv";
+        String srcPath = "D:\\test";
+        String descPath = "D:\\test\\aaa";
         CopyFile(srcPath,descPath);
         long end = System.currentTimeMillis();
         System.out.println("复制操作花费的时间为"+(end-start));//601

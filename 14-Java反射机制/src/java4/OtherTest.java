@@ -24,7 +24,7 @@ public class OtherTest {
         }
 
         System.out.println();
-        //getConstructors()：获取当前运行时类中声明的所有构造器
+        //getDeclaredConstructors()：获取当前运行时类中声明的所有构造器
         Constructor [] declaredConstructors = clazz.getDeclaredConstructors();
         for(Constructor c : declaredConstructors){
             System.out.println(c);

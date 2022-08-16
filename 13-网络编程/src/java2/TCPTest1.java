@@ -25,7 +25,7 @@ public class TCPTest1 {
         OutputStream os = null;
         try {
             //1.创建socket对象，指明服务器端的IP和端口号
-            InetAddress inet = InetAddress.getByName("127.0.0.1");
+            InetAddress inet = InetAddress.getByName("localhost");
             socket = new Socket(inet,8899);
 
             //2.获取一个输出流，用于输出数据
@@ -33,6 +33,7 @@ public class TCPTest1 {
 
             //3.写出数据的操作
             os.write("你好，我是客户端mm".getBytes());
+
 
         } catch (IOException e) {
             e.printStackTrace();

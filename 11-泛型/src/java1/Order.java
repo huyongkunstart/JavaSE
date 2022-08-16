@@ -68,4 +68,8 @@ public class Order<T> {
         return list;
     }
 
+    public <E> void test1(E a, int id){
+        System.out.println(a);
+    }
+
 }

@@ -87,12 +87,10 @@ class Person<T extends Info>{
 }
 public class GenericPerson{
 	public static void main(String args[]){
-		Person<Contact> per = null ;		// 声明Person对象
-		per = new Person<Contact>(new Contact("北京市","01088888888","102206")) ;
+		Person<Contact> per = new Person<Contact>(new Contact("北京市","01088888888","102206")) ;
 		System.out.println(per);
-		
-		Person<Introduction> per2 = null ;		// 声明Person对象
-		per2 = new Person<Introduction>(new Introduction("李雷","男",24));
+
+		Person<Introduction> per2 = new Person<Introduction>(new Introduction("李雷","男",24));
 		System.out.println(per2) ;
 	}
 }

@@ -3,6 +3,7 @@ package java5;
 import org.junit.Test;
 
 import java.io.*;
+import java.util.Scanner;
 
 /**
  * 其他流的使用
@@ -17,8 +18,8 @@ public class OtherStreamTest {
     /*
     1.标准的输入、输出流
     1.1
-    System.in : 标准的输入流，默认从键盘输入
-    System.out： 标准的输出流，默认从控制台输出
+    System.in : 标准的输入流，默认从键盘输入   注意：按照字节进行读取，是InputStream的实例对象
+    System.out： 标准的输出流，默认从控制台输出   是PrintStream的实例对象 ,也是字节流
     1.2
     System类的 setIn(InputStream is) / setOut(PrintStream ps) 方式重新指定输入和输出流
 
@@ -33,9 +34,7 @@ public class OtherStreamTest {
         BufferedReader br = null;
         try {
             InputStreamReader isr = new InputStreamReader(System.in);
-
             br = new BufferedReader(isr);
-
             while (true){
                 System.out.println("请输入字符串：");
                 String data = br.readLine();
@@ -58,7 +57,45 @@ public class OtherStreamTest {
             }
         }
     }
+    //从键盘读取一串文字，写入到文件
+    @Test
+    public void test1() throws IOException {
+        //读取： System.in 是InptuStream字节流对象，
+        // 1.所以先转换为字符流对象，控制台输入的编码是utf8，
+        //为什么要转换为字符流呢？   字节流操作文本内容可能会出现乱码的情况
+        InputStream is = System.in;
+        InputStreamReader isr = new InputStreamReader(is,"utf8");
+        // 2.最后再由缓冲流读取在控制台输入的字符串
+        BufferedReader br = new BufferedReader(isr);
 
+        //拿到输入的字符串
+        String s = br.readLine();
+        //使用文件流写入到文件
+        FileWriter fw = new FileWriter("E:\\Desktop\\test\\a\\asd.txt");
+        fw.write(s);
+        fw.flush(); //刷新缓冲区，写入文件
+        //控制台输出输入的字符串 //System.out 是PrintStream的对象，
+        // PrintStream是OutputStream和FileOutputStream的子类
+        System.out.println(s);
+    }
+
+    @Test
+    public void test11() throws Exception {
+        //读取： System.in 是InptuStream字节流对象，
+        // 1.所以先转换为字符流对象，控制台输入的编码是utf8，
+        //为什么要转换为字符流呢？   字节流操作文本内容可能会出现乱码的情况
+        InputStream is = System.in;
+        InputStreamReader isr = new InputStreamReader(is,"utf8");
+        // 2.最后再由缓冲流读取在控制台输入的字符串
+        BufferedReader br = new BufferedReader(isr);
+
+        //拿到输入的字符串
+        String s = br.readLine();
+        FileOutputStream fw = new FileOutputStream("E:\\Desktop\\text.txt");
+        PrintStream ps = new PrintStream(fw, true);
+        System.setOut(ps);
+        System.out.println(s); //不打印控制台，写入到文件中
+    }
 
     /*
     2.打印流：printStream 和 PrintWriter
@@ -80,7 +117,8 @@ public class OtherStreamTest {
                 System.out.print((char) i);
                 if (i % 50 == 0) { // 每50个数据一行
                     System.out.println(); // 换行
-                } }
+                }
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {

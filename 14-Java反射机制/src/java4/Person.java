@@ -7,6 +7,7 @@ package java4;
 @MyAnnotation(value = "hi")
 public class Person extends Creature<String> implements Comparable<String> , MyInterface{
 
+    private static int a;
     private String name;
     int age;
     public int id;
@@ -41,8 +42,10 @@ public class Person extends Creature<String> implements Comparable<String> , MyI
         System.out.println("我是一个人");
     }
 
-    public static void showDesc(){
-        System.out.println("我是一个可爱的人");
+    public static int showDesc(int aa){
+        a = aa;
+        System.out.println("我是一个可爱的人:"+a);
+        return a;
     }
 
     @Override

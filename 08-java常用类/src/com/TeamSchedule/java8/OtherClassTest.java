@@ -11,6 +11,11 @@ public class OtherClassTest {
     //system类
     @Test
     public void test(){
+//        System.in;
+//        System.out;
+//        System.err;
+//        System.exit();
+//        System.gc();
         String javaVersion = System.getProperty("java.version");
         System.out.println("java的version:" + javaVersion);
         String javaHome = System.getProperty("java.home");

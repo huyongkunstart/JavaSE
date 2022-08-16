@@ -26,7 +26,6 @@ public class CollectionsTest {
 //        List dest = new ArrayList();
 //        Collections.copy(dest,list);
 
-
         List dest = Arrays.asList(new Object[list.size()]);
         Collections.copy(dest,list);
         System.out.println(list);

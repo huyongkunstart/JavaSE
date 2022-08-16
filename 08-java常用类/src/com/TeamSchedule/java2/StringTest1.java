@@ -49,13 +49,16 @@ public class StringTest1 {
     public void test3(){
         //String ----> char[];  调用string的tocharArray（）
         String str1 = "abc123";
-        char[] charArray = str1.toCharArray();
+        char[] charArray = str1.toCharArray(); //方式一
+        char[] charArray2 = new char[10];  //方式二
+        str1.getChars(0,str1.length(),charArray2,0);
         for (char i : charArray){
             System.out.println(i);
         }
         //char[]---->String;  调用string的构造器
         char[] arr = new char[]{'h','e','l','l','o'};
-        String str2 = new String(arr);
+        String str2 = new String(arr); //方式1
+        String str22 = String.valueOf(arr); //方式2
         System.out.println(str2);
 
         //编码   string -----> byte[]之间转换：调用string的getByte()

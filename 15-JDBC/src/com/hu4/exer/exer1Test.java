@@ -25,11 +25,12 @@ public class exer1Test {
             for (int i =0;i<args.length;i++){
                 ps.setObject(i+1,args[i]);
             }
-            /*
+            /*-
             execute():如果执行的是查询操作，有返回结果，此方法返回true
                       如果执行的是增删改操作，没有返回结果，此方法返回false
             */
 //            ps.execute();
+//            ps.executeQuery();
             return ps.executeUpdate(); //返回的是影响的行数
         } catch (Exception e) {
             e.printStackTrace();

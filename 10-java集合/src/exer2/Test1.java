@@ -11,8 +11,8 @@ import java.util.List;
  */
 public class Test1 {
     public static List duplicateList(List list) {
-        HashSet set = new HashSet();
-        set.addAll(list);
+        HashSet set = new HashSet(list);
+//        set.addAll(list);
         return new ArrayList(set);
     }
     public static void main(String[] args) {

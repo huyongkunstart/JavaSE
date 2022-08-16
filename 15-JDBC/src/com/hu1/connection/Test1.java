@@ -1,6 +1,5 @@
 package com.hu1.connection;
 
-import com.hu3.bean.Cusomer;
 import com.hu3.util.JDBCUtils;
 import org.testng.annotations.Test;
 
@@ -10,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -20,29 +18,33 @@ import java.util.List;
  */
 public class Test1 {
 
+    //测试
+    @Test
+    public void test11(){
+        String sql = "insert into score(Chinese) values(?)";
+        testUpdate1(sql, 11);
+    }
+
 
     //通用的增删改操作
     public void testUpdate1(String sql,Object ...args){
         Connection conn = null;
         PreparedStatement ps = null;
         try {
-            //获取连接
             conn = JDBCUtils.getConnection();
-            //预处理sql
             ps = conn.prepareStatement(sql);
             //填充占位符
             for (int i = 0; i < args.length; i++) {
-                ps.setObject(i+1,args[i]);
+                ps.setObject(i+1, args[i]);
             }
-            //执行sql指令
             ps.execute();
-        } catch (Exception e) {
+        }catch (Exception e){
             e.printStackTrace();
-        } finally {
-            //关闭资源
+        }finally {
             JDBCUtils.closeResource(conn,ps);
         }
     }
+
 
 
     //通用的查询操作:查询一条
@@ -140,18 +142,52 @@ public class Test1 {
 
 
 
-    //测试
-    @Test
-    public void test1(){
-        String sql = "select id,name,email,birth from customers where id < ?";
+    //复习  通用的查询任意表的多条记录
+    public <T> List<T> aaa(Class<T> clazz, String sql, Object ...args){
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
 
-        List<? extends Cusomer> cusomers = TestQuery2(Cusomer.class, sql, 5);
-        Iterator<? extends Cusomer> iterator = cusomers.iterator();
-        while (iterator.hasNext()){
-            Cusomer next = iterator.next();
-            System.out.println(next);
+            conn = JDBCUtils.getConnection();
+            ps = conn.prepareStatement(sql);
+            //sql预编译
+            for (int i = 0; i < args.length; i++) {
+                ps.setObject(i+1, args[i]);
+            }
+
+            rs = ps.executeQuery();
+            //结果集元数据
+            ResultSetMetaData rsmd = rs.getMetaData();
+            //存放多条记录
+            ArrayList<T> list = new ArrayList<>();
+            while (rs.next()){
+                T t = clazz.newInstance();
+                for (int i = 0; i < rsmd.getColumnCount(); i++) {
+                    Object columvalue = rs.getObject(i + 1);
+                    String columnLabel = rsmd.getColumnLabel(i + 1);
+
+                    //反射
+                    Field df = clazz.getDeclaredField(columnLabel);
+                    df.setAccessible(true);
+                    df.set(t,columvalue);
+                }
+                list.add(t);
+            }
+            return list;
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            JDBCUtils.closeResource(conn, ps, rs);
         }
+        return null;
     }
+
+
+
+
+
+
 
 
 

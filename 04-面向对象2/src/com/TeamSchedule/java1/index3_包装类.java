@@ -46,8 +46,6 @@ public class index3_包装类 {
 		
 		Object pObject=true ? new Integer(1):new Double(2.0);
 		System.out.println(pObject);
-		
-		
 	}
 	
 }
